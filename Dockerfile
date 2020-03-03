@@ -1,4 +1,6 @@
-FROM ubuntu:18.04
-COPY . /app
-RUN make /app
-CMD python /app/app.py
+FROM ubuntu
+
+RUN apt-get update
+RUN apt-get install -qq dnsutils curl
+
+ENTRYPOINT ["/bin/sh", "-c", "bash"]
